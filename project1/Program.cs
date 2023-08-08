@@ -12,11 +12,11 @@ bool CheckLenString (string Value)
 
 // Модуль приглашения для ввода данных в виде текста с клавиатуры
 
-string InputString (string strValue)
-{
-    Console.Write (strValue);
-    return Console.ReadLine();
-}
+//string InputString (string strValue)
+//{
+//    Console.Write (strValue);
+//    return Console.ReadLine();
+//}
 
 string [] InitArrayString (string strValue)
 {
@@ -37,11 +37,32 @@ void PrintArrayString (string [] strings)
     Console.Write ("]");
 }
 
+string NewStringFromArray (string [] strings)
+{
+    string newValue = "";
+    bool firstElement = true;
+    foreach (string s in strings)
+    {
+        if (CheckLenString(s)) 
+        {
+            if (firstElement) 
+            {
+                newValue = s;
+                firstElement = false;   
+            }
+            else newValue = newValue + ", " + s;
+        }
+    }
+    return newValue;
+}
+
  
 /////////////////////////////////////////////////
 
 //string stringValue = InputString("Введите текст массива через запятую: ");
-string stringValue = "test1, test3, t3, t5"; 
-string [] oldString =  InitArrayString(stringValue);
-PrintArrayString (oldString);
+string stringValue = "test1, test3, t333, t556"; 
+string [] StringArray =  InitArrayString(stringValue);
+PrintArrayString (StringArray);
 Console.WriteLine();
+string newValue = NewStringFromArray(StringArray);
+Console.WriteLine(newValue);
