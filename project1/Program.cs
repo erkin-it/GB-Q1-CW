@@ -10,6 +10,38 @@ bool CheckLenString (string Value)
     else return false;
 }
 
-////////////////////////////////////////////////////
+// Модуль приглашения для ввода данных в виде текста с клавиатуры
 
-Console.WriteLine (CheckLenString("Text"));
+string InputString (string strValue)
+{
+    Console.Write (strValue);
+    return Console.ReadLine();
+}
+
+string [] InitArrayString (string strValue)
+{
+    string [] strings= strValue.Split (", ");
+    return  strings;
+}
+
+void PrintArrayString (string [] strings)
+{
+    Console.Write("[");
+    bool firstElement = true;
+    foreach (string s in strings)
+    {
+        if (firstElement) firstElement = false;
+        else Console.Write (", ");
+        Console.Write ($"\"{s}\"");
+    }
+    Console.Write ("]");
+}
+
+ 
+/////////////////////////////////////////////////
+
+//string stringValue = InputString("Введите текст массива через запятую: ");
+string stringValue = "test1, test3, t3, t5"; 
+string [] oldString =  InitArrayString(stringValue);
+PrintArrayString (oldString);
+Console.WriteLine();
