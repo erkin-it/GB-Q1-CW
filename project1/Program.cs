@@ -3,6 +3,7 @@
 // либо задать на старте выполнения алгоритма. При решении не рекомендуется пользоваться коллекциями, 
 // лучше обойтись исключительно массивами.
 
+// Функция проверки строки на условие: длина строки меньше или равно 3 символам
 bool CheckLenString (string Value)
 {
     int LenStr = Value.Length;
@@ -10,20 +11,14 @@ bool CheckLenString (string Value)
     else return false;
 }
 
-// Модуль приглашения для ввода данных в виде текста с клавиатуры
-
-//string InputString (string strValue)
-//{
-//    Console.Write (strValue);
-//    return Console.ReadLine();
-//}
-
+// Функция разбивки строки на массив строк по критерию ", "
 string [] InitArrayString (string strValue)
 {
     string [] strings= strValue.Split (", ");
     return  strings;
 }
 
+// Функция вывода массива строк на эркан: ["str1", "str2", ... "srtN"]
 void PrintArrayString (string [] strings)
 {
     Console.Write("[");
@@ -37,6 +32,7 @@ void PrintArrayString (string [] strings)
     Console.Write ("]");
 }
 
+// Функция создание строки из массива строк с проверкой на длину строки элемента массива
 string NewStringFromArray (string [] strings)
 {
     string newValue = "";
@@ -59,10 +55,20 @@ string NewStringFromArray (string [] strings)
  
 /////////////////////////////////////////////////
 
-//string stringValue = InputString("Введите текст массива через запятую: ");
-string stringValue = "test1, test3, t333, t556"; 
+//Формирование массива строк
+string stringValue = "t1, test3, t333, t5"; 
 string [] StringArray =  InitArrayString(stringValue);
+
+//Вывод исходного массива на экран
 PrintArrayString (StringArray);
-Console.WriteLine();
+
+Console.Write(" => ");
+
+//Решение задачи: Формирование строки из массива строк отвечаюшие условию задачи
 string newValue = NewStringFromArray(StringArray);
-Console.WriteLine(newValue);
+
+//Преобразование массива из строки
+string [] newStringArray = InitArrayString(newValue);
+
+//Вывод массива
+PrintArrayString (newStringArray);
